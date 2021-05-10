@@ -5,12 +5,14 @@ const greeting = <div>Hello React</div>;
 const isReactUser = false;
 const rootNode = document.getElementById('root');
 
-if (isReactUser){
-
-} else{
-    
+function sayGreeting(){
+    if (isReactUser){
+        return greeting;
+} else{  
+    return (<div>Hello Python</div>)
 }
-function sayGreeting();
+}
 
-ReactDOM.render(greeting, rootNode);
+
+ReactDOM.render(sayGreeting(), rootNode);
 

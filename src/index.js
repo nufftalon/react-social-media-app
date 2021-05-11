@@ -38,9 +38,9 @@ function App() {
 <footer>Copyright 2020</footer>
 </Layout>);
 }
+const rootNode = document.getElementById('root');
 
 ReactDOM.render
 (<App/>, rootNode);
 
 
-const rootNode = document.getElementById('root');

@@ -21,14 +21,26 @@ function Signout() {
     return <button>Signout</button>
 }
 
-const rootNode = document.getElementById('root');
 
 const isAuthenticated = true;
 
-ReactDOM.render
-(<Layout>
- {isAuthenticated ? <Header username="Gary"/> : <Login/>}
- {isAuthenticated &&<Signout/> }
-<footer>Copyright 2020</footer>
-</Layout>, rootNode);
+function App() {
+   return (<Layout>
+ {isAuthenticated ? (
+     <>
 
+      <Header username="Gary"/>
+ <Signout/>    
+ </>
+
+ ) : <Login/>}
+ {/* {isAuthenticated &&<Signout/> } */}
+<footer>Copyright 2020</footer>
+</Layout>);
+}
+
+ReactDOM.render
+(<App/>, rootNode);
+
+
+const rootNode = document.getElementById('root');

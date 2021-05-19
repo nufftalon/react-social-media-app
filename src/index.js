@@ -2,18 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 function App() {
-  const [inputValue, setInputValue] = React.useState('');
-  // const inputValue = inputState[0];
-  // const setInputValue = inputState[1];
-
-  function handleInputChange(event) {
-    setInputValue(event.target.value);
-  }
+  const [language, setLanguage] = React.useState('python');
+  const [yearsExperence, setYearsExperience] = React.useState(0);
 
   return (
     <div>
-      <input onChange={handleInputChange} />
-      <p>{inputValue}</p>
+      <button onClick={() => setLanguage('javascript')}>Change language</button>
+      <div>
+        <input
+          type="number"
+          onChange={(event) => setYearsExperience(event.target.value)}
+        />
+      </div>
+
+      <p> I am learning {language}.</p>
+      <p>I have {yearsExperence} years of experience</p>
     </div>
   );
 }

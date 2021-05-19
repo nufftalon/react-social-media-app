@@ -2,28 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 function App() {
-  const people = ['John', 'Dave', 'Gary'];
-
   function handleInputChange(event) {
     const inputValue = event.target.value;
     console.log(inputValue);
   }
 
   return (
-    <ul>
-      {people.map((person, i) => (
-        <Person key={i} person={person} />
-      ))}
+    <div>
       <input onChange={handleInputChange} />
-    </ul>
+    </div>
   );
-}
-
-function Person(props) {
-  function handlePersonClick(event) {
-    alert(props.person);
-  }
-  return <li onClick={handlePersonClick}>{props.person}</li>;
 }
 
 const rootNode = document.getElementById('root');

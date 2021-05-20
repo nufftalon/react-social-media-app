@@ -2,65 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 function App() {
-  const [developer, setDeveloper] = React.useState({
-    name: '',
-    language: 'python',
-    yearsExperence: 0,
-  });
-  // const [language, setLanguage] = React.useState('python');
-  // const [yearsExperence, setYearsExperience] = React.useState(0);
-  function handleChangeLangauge() {
-    setDeveloper({
-      language: 'javascript',
-      yearsExperence: 0,
-      isEmployed: false,
-    });
-  }
+  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
+
   React.useEffect(() => {
-    document.title = developer.name;
-    console.log('runs');
-  }, [developer.name]);
+    document.addEventListener('mousemove', handleMouseMove);
+  }, []);
 
-  function handleChangeName(event) {
-    setDeveloper({
-      ...developer,
-      name: event.target.value,
-    });
+  function handleMouseMove(event) {
+    setMousePosition({ x: event.pageX, y: event.pageY });
   }
-
-  function handleChangeYearsExperience(event) {
-    setDeveloper({
-      ...developer,
-      yearsExperence: event.target.value,
-    });
-  }
-
-  function handleToggleEmployment() {
-    setDeveloper((prevState) => ({
-      ...prevState,
-      isEmployed: !prevState.isEmployed,
-    }));
-  }
-
   return (
     <div>
-      <button onClick={handleToggleEmployment}>Toggle Employment Status</button>
-      <button onClick={handleChangeLangauge}>Change language</button>
-      <div>
-        <input type="number" onChange={handleChangeYearsExperience} />
-      </div>
-      <div>
-        <input
-          type="text"
-          onChange={handleChangeName}
-          placeholder="Change Name"
-        />
-      </div>
-
-      <p> I am learning {developer.language}.</p>
-      <p>I have {developer.yearsExperence} years of experience</p>
       <p>
-        Employment status: {developer.isEmployed ? 'Employed' : 'Unemployed'}
+        X: {mousePosition.x}, Y: {mousePosition.y}
       </p>
     </div>
   );
